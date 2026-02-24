@@ -17,7 +17,18 @@ def run_pipeline():
     
     
     report.generate_excel_report(df_customers, output_path="customers_data_quality_report.xlsx")
-    report.generate_pdf_report(df_customers, output_path="customers_data_quality_report.pdf")   
+    report.generate_pdf_report(df_customers, output_path="customers_data_quality_report.pdf") 
+    
+    report.generate_excel_report(df_orders, output_path="orders_data_quality_report.xlsx")
+    report.generate_pdf_report(df_orders, output_path="orders_data_quality_report.pdf")
+    
+    report.generate_excel_report(df_payments, output_path="payments_data_quality_report.xlsx")
+    report.generate_pdf_report(df_payments, output_path="payments_data_quality_report.pdf")
+    
+    report.generate_excel_report(df_products, output_path="products_data_quality_report.xlsx")
+    report.generate_pdf_report(df_products, output_path="products_data_quality_report.pdf")
+    
+    return "Data quality reports generated successfully!"  
     
     
     
