@@ -1,5 +1,6 @@
 import pandas as pd
 from connection.create_data_set import create_dataframe
+import reports.create_report as report
 
 
 def run_pipeline():
@@ -14,20 +15,13 @@ def run_pipeline():
     df_payments.columns = ["payment_id","order_id","payment_method","paid_amount","paid_at"]
     df_products.columns = ["product_id","product_name","category","price"]
     
-    print("customers:")
-    print(df_customers.head())
     
-    print("orders:")
-    print(df_orders.head())
-    
-    print("payments:")
-    print(df_payments.head())
-    
-    print("products:")
-    print(df_products.head())
+    report.generate_excel_report(df_customers, output_path="customers_data_quality_report.xlsx")
+    report.generate_pdf_report(df_customers, output_path="customers_data_quality_report.pdf")   
     
     
-    print(df_products.isnull().sum())
+    
+    
     
 if __name__ == "__main__":
     run_pipeline()
